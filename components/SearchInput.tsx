@@ -4,6 +4,7 @@ import styles from '../assets/styles/searchbar.css';
 const search =  {
 	query: '',
 	onChange: (e : string) => {
+		search.query = e
 		console.log(e)
 	}
 }
@@ -11,10 +12,10 @@ const search =  {
 export default function SearchInput() {
 	return (
 		<View style={styles.bar}>
-			<TextInput
-			placeholder="Search"
-			value={search.query}
-			onChangeText={search.onChange}
+			<TextInput style={styles.input}
+				placeholder="Search"
+				// value={search.query}
+				onChangeText={search.onChange}
 			></TextInput>
 		</View>
 	);

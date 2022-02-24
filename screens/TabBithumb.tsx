@@ -1,15 +1,13 @@
-import { StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
-import CoinList from '../components/CoinList';
 import SearchInput from '../components/SearchInput';
-import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
-export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+export default function TabBithumb({ navigation }: RootTabScreenProps<'TabBithumb'>) {
   return (
     <View style={styles.container}>
-      <SearchInput />
-      <CoinList />
+      {/* <SearchInput /> */}
+      <Text>Bithumb</Text>
     </View>
   );
 }

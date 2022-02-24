@@ -1,4 +1,9 @@
 .bar {
-    width: 100%; height: 50px; background-color: red;
-    position: absolute; top: 0;
+    width: 50%; height: 60; border-bottom-width: 0.5; border-color: #dfdfdf;
+    position: absolute; top: 0; z-index: 1; left: 50; top: 50; background-color: #fff;
 }
+.input {
+    height: 100%; padding-left: 20; padding-right: 20; font-size: 15;
+    color: #222;
+}
+.iput::placeholder { color: #444; }
