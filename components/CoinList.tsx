@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Pressable, FlatList, Image, Text, View } from 'react-native'
+import { useDispatch, useSelector } from 'react-redux'
 import styles from '../assets/styles/coin-list.css'
 
 let coins : [] = []
@@ -13,15 +14,20 @@ axios.get('http://1.1.1.95:5000/coins')
         // 항상 실행
     });
 
-const onPress = (e : any) => {
-	console.log(e.target)
-}
-
 export default function CoinList() {
+	const detail = useSelector(state => state.detail)
+	const dispatch = useDispatch()
+
+	const onPress = (symbol : String) => {
+		console.log('detail: ' + symbol)
+		dispatch({ type: 'SET_DETAIL', payload: symbol })
+		console.log(detail)
+	}
+
 	const renderCoin = ({ item } : any) => {
 		const img_url = `https://static.upbit.com/logos/${item.symbol}.png`
 		return (
-			<Pressable style={styles.item} onPress={onPress}>
+			<Pressable style={styles.item} onPress={() => onPress(item.symbol)}>
 				<View style={styles.item_img}>
 					<Image style={styles.img} source={{ uri: img_url }} />
 				</View>
