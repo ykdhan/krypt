@@ -1,10 +1,10 @@
 import { Text, View, StyleSheet } from 'react-native';
 import { RootTabScreenProps } from '../types';
 
-export default function DetailUpbit({ navigation }: RootTabScreenProps<'DetailUpbit'>) {
+export default function DetailUpbit({ navigation }: RootTabScreenProps<'DetailScreen'>) {
   return (
     <View style={styles.container}>
-      <Text>Detail Upbit</Text>
+      <Text>Detail</Text>
     </View>
   );
 }

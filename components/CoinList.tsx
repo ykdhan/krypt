@@ -14,17 +14,17 @@ axios.get('http://1.1.1.95:5000/coins')
         // 항상 실행
     });
 
-export default function CoinList() {
+export default function CoinList({ navigation }) {
 	const detail = useSelector(state => state.detail)
 	const dispatch = useDispatch()
 
 	const onPress = (symbol : String) => {
 		console.log('detail: ' + symbol)
 		dispatch({ type: 'SET_DETAIL', payload: symbol })
-		console.log(detail)
+		navigation.navigate('UpbitDetail')
 	}
 
-	const renderCoin = ({ item } : any) => {
+	const renderCoin = ({ item, navigation } : any) => {
 		const img_url = `https://static.upbit.com/logos/${item.symbol}.png`
 		return (
 			<Pressable style={styles.item} onPress={() => onPress(item.symbol)}>
@@ -41,11 +41,7 @@ export default function CoinList() {
 
 	return (
 		<View style={styles.list}>
-			<FlatList
-			data={coins}
-			renderItem={renderCoin}
-			keyExtractor={(item : any) => item._id}
-			/>
+			<FlatList data={coins} renderItem={renderCoin} keyExtractor={(item : any) => item._id} />
 		</View>
 	);
 }
